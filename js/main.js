@@ -11,6 +11,30 @@
     };
     spinner();
 
+    // spinner
+    var showSpinner = function () {
+        $('#spinner').addClass('show');
+    };
+
+    var hideSpinner = function () {
+        $('#spinner').removeClass('show');
+    };
+
+    var simulateLoading = function (action) {
+        showSpinner();
+        setTimeout(function () {
+            action();
+            hideSpinner();
+        }, 200);
+    };
+
+    $('button, a').click(function (event) {
+        simulateLoading(function () {
+        });
+    });
+
+
+
 
     // Initiate the wowjs
     new WOW().init();
